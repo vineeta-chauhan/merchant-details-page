@@ -3,7 +3,7 @@
 ### created a api "/createMerchantData" which is responsible to store data in db.
 
 ## How to run a app
-#### clone repo
+### clone repo
 ### cd frontend
 ### npm i
 ### npm start
@@ -11,4 +11,4 @@
 ### cd api
 ### npm i
 ### npm run dev
-### specify the value of db path in .env 
+###  specified the value of db path in .env
