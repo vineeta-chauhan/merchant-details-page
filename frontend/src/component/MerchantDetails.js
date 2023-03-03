@@ -39,7 +39,8 @@ const MerchantDetailsForm = () => {
 
     const submitformHandler = async (e) => {
         e.preventDefault();
-        if (isEmpty(restaurantName && phoneNumber && contactName && Pincode && website && location && averageDailyTransactions)) {
+        if (isEmpty(restaurantName) || isEmpty(phoneNumber) || isEmpty(contactName) || isEmpty(Pincode)
+            || isEmpty(website) || isEmpty(location) || isEmpty(averageDailyTransactions)) {
             warningNotification("please enter all the details");
             return;
         }
@@ -72,7 +73,6 @@ const MerchantDetailsForm = () => {
             })
             let response = await result.json();
 
-            // localStorage.setItem("merchandetails-info", JSON.stringify(response))
             if (response) {
                 successNotification();
                 setContactName('');
@@ -82,7 +82,6 @@ const MerchantDetailsForm = () => {
                 setLocation('');
                 setWebsite('');
                 setAverageDailyTransactions('');
-                return;
             }
         }
         catch (err) {
@@ -91,77 +90,77 @@ const MerchantDetailsForm = () => {
     }
 
     return (
-        <Fragment>
-            <form action="" className={styles.formContainer}>
-                <div className={styles.container}>
-                    <div className={styles.userContainer}>
-                        <label className={styles.label}>contact Name</label>
-                        <input
-                            className={styles.inputContainer} type="text"
-                            name="contactName" value={contactName}
-                            onChange={(e) => setContactName(e.target.value)}
-                        />
-                    </div>
-                    <div className={styles.userContainer}>
-                        <label className={styles.label}>Phone</label>
-                        <input
-                            className={styles.inputContainer}
-                            type="text" name="Phone" value={phoneNumber}
-                            onChange={(e) => setphoneNumber(e.target.value)}
-                        />
-                    </div>
-                    <div className={styles.userContainer}>
-                        <label className={styles.label}>Restaurant Name</label>
-                        <input
-                            className={styles.inputContainer}
-                            type="text" name="resturant name" value={restaurantName}
-                            onChange={(e) => setRestaurantName(e.target.value)}
-                        />
-                    </div>
-                    <div className={styles.userContainer}>
-                        <label className={styles.label}>Pincode</label>
-                        <input
-                            className={styles.inputContainer}
-                            type="text" name="Pincode" value={Pincode}
-                            onChange={(e) => setPincode(e.target.value)}
-                        />
-                    </div>
-                    <div className={styles.userContainer}>
-                        <label className={styles.label}>website</label>
-                        <input
-                            className={styles.inputContainer}
-                            type="text" name="website" value={website}
-                            onChange={(e) => setWebsite(e.target.value)}
-                        />
-                    </div>
-                    <div className={styles.userContainer}>
-                        <label className={styles.label}>location</label>
-                        <input
-                            className={styles.inputContainer}
-                            type="text" name="location" value={location}
-                            onChange={(e) => setLocation(e.target.value)}
-                        />
-                    </div>
-                    <div className={styles.userContainer}>
-                        <label className={styles.label}>averageDailyTransactions</label>
-                        <input
-                            className={styles.inputContainer}
-                            type="text" name="averageDailyTransactions" value={averageDailyTransactions}
-                            onChange={(e) => setAverageDailyTransactions(e.target.value)}
-                        />
-                    </div>
-                    <div className={styles.btnContainer}>
-                        <button
-                            className={styles.button}
-                            type="submit"
-                            onClick={submitformHandler}
-                        >
-                            Submit
-                        </button>
-                    </div>
+
+        <form action="" className={styles.formContainer}>
+            <div className={styles.container}>
+                <div className={styles.userContainer}>
+                    <label className={styles.label}>contact Name</label>
+                    <input
+                        className={styles.inputContainer} type="text"
+                        name="contactName" value={contactName}
+                        onChange={(e) => setContactName(e.target.value)}
+                    />
                 </div>
-            </form>
-        </Fragment >
+                <div className={styles.userContainer}>
+                    <label className={styles.label}>Phone</label>
+                    <input
+                        className={styles.inputContainer}
+                        type="text" name="Phone" value={phoneNumber}
+                        onChange={(e) => setphoneNumber(e.target.value)}
+                    />
+                </div>
+                <div className={styles.userContainer}>
+                    <label className={styles.label}>Restaurant Name</label>
+                    <input
+                        className={styles.inputContainer}
+                        type="text" name="resturant name" value={restaurantName}
+                        onChange={(e) => setRestaurantName(e.target.value)}
+                    />
+                </div>
+                <div className={styles.userContainer}>
+                    <label className={styles.label}>Pincode</label>
+                    <input
+                        className={styles.inputContainer}
+                        type="text" name="Pincode" value={Pincode}
+                        onChange={(e) => setPincode(e.target.value)}
+                    />
+                </div>
+                <div className={styles.userContainer}>
+                    <label className={styles.label}>website</label>
+                    <input
+                        className={styles.inputContainer}
+                        type="text" name="website" value={website}
+                        onChange={(e) => setWebsite(e.target.value)}
+                    />
+                </div>
+                <div className={styles.userContainer}>
+                    <label className={styles.label}>location</label>
+                    <input
+                        className={styles.inputContainer}
+                        type="text" name="location" value={location}
+                        onChange={(e) => setLocation(e.target.value)}
+                    />
+                </div>
+                <div className={styles.userContainer}>
+                    <label className={styles.label}>averageDailyTransactions</label>
+                    <input
+                        className={styles.inputContainer}
+                        type="text" name="averageDailyTransactions" value={averageDailyTransactions}
+                        onChange={(e) => setAverageDailyTransactions(e.target.value)}
+                    />
+                </div>
+                <div className={styles.btnContainer}>
+                    <button
+                        className={styles.button}
+                        type="submit"
+                        onClick={submitformHandler}
+                    >
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </form>
+
     )
 }
 
